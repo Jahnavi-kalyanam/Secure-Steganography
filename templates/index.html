@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Secure Steganography</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>🔐 Secure Steganography</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <label>
+        <input type="radio" name="mode" value="encrypt" checked /> Encrypt
+      </label>
+      <label>
+        <input type="radio" name="mode" value="decrypt" /> Decrypt
+      </label>
+      <br /><br />
+
+      <div id="messageField">
+        <label>Message (for encryption):</label><br />
+        <textarea name="message" rows="4" cols="50"></textarea><br /><br />
+      </div>
+
+      <label>Password/Key:</label><br />
+      <input type="text" name="key" required /><br /><br />
+
+      <label>Select Image:</label><br />
+      <input type="file" name="image" accept="image/*" required /><br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    {% if output_image %}
+    <h2>✅ Encrypted Image:</h2>
+    <img src="{{ output_image }}" width="300" />
+    <p><a href="{{ output_image }}" download>Download Image</a></p>
+    {% endif %} {% if decrypted_message %}
+    <h2>🔓 Decrypted Message:</h2>
+    <p>{{ decrypted_message }}</p>
+    {% endif %} {% if error %}
+    <div id="error">
+      <h2>⚠️ Error:</h2>
+      <p>{{ error }}</p>
+    </div>
+    {% endif %}
+
+    <script>
+      const messageField = document.getElementById("messageField");
+      document.querySelectorAll('input[name="mode"]').forEach((elem) => {
+        elem.addEventListener("change", function () {
+          messageField.style.display =
+            this.value === "encrypt" ? "block" : "none";
+        });
+      });
+    </script>
+  </body>
+</html>

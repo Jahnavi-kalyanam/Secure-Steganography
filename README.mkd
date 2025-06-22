@@ -1,0 +1,12 @@
+## ✅ How to Run
+
+1. Put all files in the folder `secure_stego_app`
+2. From that folder, run:
+
+```bash
+python app.py
+```
+
+3. Open `http://127.0.0.1:5000/` in your browser.
+
+---
