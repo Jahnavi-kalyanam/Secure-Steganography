@@ -1,6 +1,6 @@
 ## ✅ How to Run
 
-1. Put all files in the folder `secure_stego_app`
+1. Put all files in this Repository
 2. From that folder, run:
 
 ```bash
