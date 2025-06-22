@@ -38,8 +38,10 @@
     <img src="{{ output_image }}" width="300" />
     <p><a href="{{ output_image }}" download>Download Image</a></p>
     {% endif %} {% if decrypted_message %}
-    <h2>🔓 Decrypted Message:</h2>
-    <p>{{ decrypted_message }}</p>
+    <div id="decrypted-message-box">
+      <h2>🔓 Decrypted Message:</h2>
+      <p>{{ decrypted_message }}</p>
+    </div>
     {% endif %} {% if error %}
     <div id="error">
       <h2>⚠️ Error:</h2>
